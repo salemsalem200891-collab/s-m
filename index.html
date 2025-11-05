@@ -4,18 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Salou AI Assistant</title>
-
-    <!-- Manifest for PWA -->
-    <link rel="manifest" href="manifest.json" />
-
-    <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
       body {
         font-family: 'Cairo', sans-serif;
@@ -26,31 +18,17 @@
         align-items: center;
         height: 100vh;
       }
-
       #loading {
         font-size: 1.2rem;
         font-weight: 600;
         animation: pulse 1.5s infinite;
       }
-
       @keyframes pulse {
         0% { opacity: 0.3; }
         50% { opacity: 1; }
         100% { opacity: 0.3; }
       }
     </style>
-
-    <!-- Import React and GenAI -->
-    <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-        "react/": "https://aistudiocdn.com/react@^19.2.0/",
-        "react": "https://aistudiocdn.com/react@^19.2.0",
-        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
-      }
-    }
-    </script>
   </head>
 
   <body>
@@ -58,18 +36,28 @@
       <div id="loading">جارٍ تحميل مساعدك الذكي سالووه...</div>
     </div>
 
-    <!-- Service Worker -->
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('✅ Service Worker Registered:', reg))
-            .catch(err => console.error('❌ Service Worker Error:', err));
-        });
-      }
-    </script>
+      // Check if React is loaded dynamically
+      async function startApp() {
+        const React = await import("https://esm.sh/react@18");
+        const ReactDOM = await import("https://esm.sh/react-dom@18");
 
-    <!-- Main React entry -->
-    <script type="module" src="index.tsx"></script>
+        const App = () => React.createElement("div", {
+          style: {
+            textAlign: "center",
+            padding: "20px"
+          }
+        }, "مرحبًا سالم 👋 — أنا سالووه، مساعدك الذكي جاهز!");
+
+        ReactDOM.createRoot(document.getElementById("root"))
+          .render(React.createElement(App));
+      }
+
+      startApp().catch(err => {
+        document.getElementById("root").innerHTML =
+          "<p style='color:red;'>⚠️ حدث خطأ أثناء تحميل التطبيق</p><pre>" + err + "</pre>";
+        console.error(err);
+      });
+    </script>
   </body>
 </html>

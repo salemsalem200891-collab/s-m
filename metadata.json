@@ -1,0 +1,8 @@
+{
+  "name": "s&m",
+  "description": "Salou is an integrated Arabic AI assistant, designed to be a programmer and personal assistant within a website. It operates as an interactive voice and text interface in the Egyptian dialect.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

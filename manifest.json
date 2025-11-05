@@ -1,0 +1,29 @@
+
+{
+  "name": "سالووه (Salou) AI Assistant",
+  "short_name": "سالووه",
+  "description": "سالووه (Salou) هو مساعد ذكاء اصطناعي عربي متكامل، مصمم ليكون مبرمجاً ومساعداً شخصياً داخل موقع الويب. يعمل بواجهة صوتية ونصية تفاعلية بلهجة مصرية.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1F2937",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/icons/salou-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/salou-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/salou-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
+    
